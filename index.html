@@ -13,6 +13,8 @@
   <link rel="alternate" hreflang="es" href="https://www.teslaconreferido.com/es/">
   <link rel="alternate" hreflang="en" href="https://www.teslaconreferido.com/en/">
   <link rel="alternate" hreflang="x-default" href="https://www.teslaconreferido.com/">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
 
   <style>
     :root {
@@ -25,13 +27,8 @@
       --red2: #ff4045;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -41,10 +38,7 @@
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     header {
       position: fixed;
@@ -53,7 +47,7 @@
       width: 100%;
       z-index: 1000;
       padding: 18px 28px;
-      background: rgba(0, 0, 0, .55);
+      background: rgba(0, 0, 0, .62);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
@@ -67,10 +61,19 @@
       gap: 20px;
     }
 
+    .brand {
+      font-size: 20px;
+      font-weight: 950;
+      letter-spacing: -.05em;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--red2); }
+
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 22px;
       flex-wrap: wrap;
     }
 
@@ -81,9 +84,7 @@
       transition: .2s;
     }
 
-    .nav-links a:hover {
-      color: #ffffff;
-    }
+    .nav-links a:hover { color: #ffffff; }
 
     .nav-right {
       display: flex;
@@ -110,9 +111,7 @@
     }
 
     .lang-btn:hover,
-    .lang-btn.active {
-      color: #ffffff;
-    }
+    .lang-btn.active { color: #ffffff; }
 
     .nav-cta {
       display: inline-flex;
@@ -124,6 +123,7 @@
       background: rgba(255,255,255,.06);
       font-weight: 700;
       transition: .25s;
+      white-space: nowrap;
     }
 
     .nav-cta:hover {
@@ -137,19 +137,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 120px 20px 90px;
+      padding: 140px 20px 90px;
       overflow: hidden;
       text-align: center;
+      isolation: isolate;
     }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
+      z-index: -2;
       background-image: url("https://images3.alphacoders.com/129/thumb-1920-1298382.jpg");
       background-size: cover;
       background-position: center;
-      opacity: .35;
+      opacity: .42;
       transform: scale(1.05);
     }
 
@@ -157,7 +159,8 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .86));
+      z-index: -1;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, .78), rgba(0, 0, 0, .88));
     }
 
     .hero-content {
@@ -218,6 +221,7 @@
       min-height: 58px;
       padding: 18px 30px;
       border-radius: 24px;
+      border: 1px solid transparent;
       font-size: 18px;
       font-weight: 850;
       transition: .25s;
@@ -234,13 +238,11 @@
     }
 
     .btn-secondary {
-      border: 1px solid rgba(255, 255, 255, .14);
+      border-color: rgba(255, 255, 255, .14);
       background: rgba(255, 255, 255, .08);
     }
 
-    section {
-      padding: 100px 20px;
-    }
+    section { padding: 100px 20px; }
 
     .container {
       max-width: 1180px;
@@ -318,10 +320,7 @@
       font-size: 14px;
     }
 
-    .guide-content {
-      position: relative;
-      z-index: 2;
-    }
+    .guide-content { position: relative; z-index: 2; }
 
     .guide-content h2 {
       margin: 22px 0 26px;
@@ -331,9 +330,7 @@
       letter-spacing: -.07em;
     }
 
-    .guide-content h2 span {
-      color: var(--red2);
-    }
+    .guide-content h2 span { color: var(--red2); }
 
     .guide-lead {
       margin: 0 0 34px;
@@ -476,6 +473,37 @@
       font-weight: 800;
     }
 
+    .faq {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .faq-item {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, .045);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      letter-spacing: -.03em;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .contact {
+      border-top: 1px solid var(--line);
+      background: radial-gradient(circle at 50% 0%, rgba(232,33,39,.24), transparent 36%), #050505;
+    }
+
     .footer {
       padding: 40px 20px;
       border-top: 1px solid var(--line);
@@ -486,100 +514,56 @@
     }
 
     @media (max-width: 980px) {
-      .guide-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .guide-image img {
-        height: 420px;
-      }
-
-      .guide-content {
-        text-align: center;
-      }
-
-      .guide-buttons {
-        justify-content: center;
-      }
-
-      .guide-point {
-        text-align: left;
-      }
+      .guide-grid { grid-template-columns: 1fr; }
+      .guide-image img { height: 420px; }
+      .guide-content { text-align: center; }
+      .guide-buttons { justify-content: center; }
+      .guide-point { text-align: left; }
     }
 
     @media (max-width: 900px) {
-      header {
-        padding: 14px 18px;
-      }
-
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        gap: 16px;
-      }
-
-      .nav-right {
-        width: 100%;
-        justify-content: space-between;
-      }
+      header { padding: 14px 18px; }
+      .navbar { flex-direction: column; align-items: flex-start; }
+      .nav-links { gap: 16px; }
+      .nav-right { width: 100%; justify-content: space-between; }
+      .brand { font-size: 18px; }
     }
 
     @media (max-width: 700px) {
-      .buttons {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
+      .buttons { flex-direction: column; }
+      .btn { width: 100%; }
     }
 
     @media (max-width: 640px) {
-      .guide-image img {
-        height: 320px;
-      }
-
-      .guide-content h2 {
-        font-size: 48px;
-      }
-
-      .guide-lead {
-        font-size: 18px;
-      }
-
-      .guide-buttons {
-        flex-direction: column;
-      }
-
-      .guide-buttons .btn {
-        width: 100%;
-      }
+      .guide-image img { height: 320px; }
+      .guide-content h2 { font-size: 48px; }
+      .guide-lead { font-size: 18px; }
+      .guide-buttons { flex-direction: column; }
+      .guide-buttons .btn { width: 100%; }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a class="brand" href="#inicio">teslacon<span>referido</span>.com</a>
+
       <div class="nav-links">
-        <a href="/es/#inicio" data-i18n="navInicio">Inicio</a>
-        <a href="/es/#ventajas" data-i18n="navVentajas">Ventajas</a>
-        <a href="/es/#dudas" data-i18n="navDudas">Dudas</a>
-        <a href="/es/#contacto" data-i18n="navContacto">Contacto</a>
+        <a href="#inicio" data-i18n="navInicio">Inicio</a>
+        <a href="#ventajas" data-i18n="navVentajas">Ventajas</a>
+        <a href="#recursos" data-i18n="navRecursos">Recursos</a>
+        <a href="#dudas" data-i18n="navDudas">Dudas</a>
+        <a href="#contacto" data-i18n="navContacto">Contacto</a>
       </div>
 
       <div class="nav-right">
         <div class="lang-switch" aria-label="Selector de idioma">
-          <button type="button" class="lang-btn active" data-lang="es">ES</button>
-          <button type="button" class="lang-btn" data-lang="en">EN</button>
+          <a href="/es/" class="lang-btn active">ES</a>
+          <a href="/en/" class="lang-btn">EN</a>
         </div>
 
-        <a class="nav-cta" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer" data-i18n="navTesla">
-          Ir a Tesla
-        </a>
+        <a class="nav-cta" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer" data-i18n="navTesla">Ir a Tesla</a>
       </div>
     </nav>
   </header>
@@ -587,31 +571,18 @@
   <main>
     <section id="inicio" class="hero">
       <div class="hero-content">
-        <div class="badge">
-          <span class="dot"></span>
-          Tesla referral + recursos reales sobre Tesla
-        </div>
+        <div class="badge"><span class="dot"></span><span data-i18n="heroBadge">Tesla referral + recursos reales sobre Tesla</span></div>
 
-        <h1>Tesla Referido + comunidad Tesla</h1>
+        <h1 data-i18n="heroTitle">Tesla Referido + comunidad Tesla</h1>
 
-        <p>
-          Accede a Tesla con mi enlace referido y descubre recursos útiles sobre Tesla:
-          canales de YouTube, ingeniería, mecánica, experiencias reales, carga, baterías,
-          viajes y contenido especializado sobre Model 3 y Model Y.
+        <p data-i18n="heroText">
+          Accede a Tesla con mi enlace referido y descubre recursos útiles sobre Tesla: canales de YouTube, ingeniería, mecánica, experiencias reales, carga, baterías, viajes y contenido especializado sobre Model 3 y Model Y.
         </p>
 
         <div class="buttons">
-          <a class="btn btn-primary" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer">
-            Entrar a Tesla con mi referido →
-          </a>
-
-          <a class="btn btn-secondary" href="/es/">
-            Versión en español
-          </a>
-
-          <a class="btn btn-secondary" href="/en/">
-            English version
-          </a>
+          <a class="btn btn-primary" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer" data-i18n="heroCta">Entrar a Tesla con mi referido →</a>
+          <a class="btn btn-secondary" href="#dudas" data-i18n="heroFaq">Dudas sobre el referido</a>
+          <a class="btn btn-secondary" href="#recursos" data-i18n="heroResources">Ver recursos Tesla</a>
         </div>
       </div>
     </section>
@@ -621,197 +592,208 @@
         <div class="guide-image">
           <img src="https://4kwallpapers.com/images/wallpapers/tesla-model-y-2025-3840x2160-21164.jpeg" alt="Tesla Model Y en carretera">
           <div class="image-overlay"></div>
-          <div class="image-badge">Comunidad Tesla · Recursos · Experiencia real</div>
+          <div class="image-badge" data-i18n="guideImageBadge">Comunidad Tesla · Recursos · Experiencia real</div>
         </div>
 
         <div class="guide-content">
-          <div class="badge">
-            <span class="dot"></span>
-            Tesla referral + recursos útiles
-          </div>
+          <div class="badge"><span class="dot"></span><span data-i18n="guideBadge">Tesla referral + recursos útiles</span></div>
 
-          <h2>
-            ¿Vas a comprar un Tesla?
-            <span>Usa mi referido.</span>
-          </h2>
+          <h2><span data-i18n="guideTitleA">¿Vas a comprar un Tesla?</span> <span data-i18n="guideTitleB">Usa mi referido.</span></h2>
 
-          <p class="guide-lead">
-            Si ya estás pensando en comprar un Tesla Model 3, Model Y o cualquier otro modelo Tesla,
-            puedes entrar usando mi enlace referido oficial. A ti no te cuesta nada y a mí me ayudas muchísimo.
+          <p class="guide-lead" data-i18n="guideLead">
+            Si ya estás pensando en comprar un Tesla Model 3, Model Y o cualquier otro modelo Tesla, puedes entrar usando mi enlace referido oficial. A ti no te cuesta nada y a mí me ayudas muchísimo.
           </p>
 
           <div class="guide-points">
             <article class="guide-point">
               <div class="point-icon" aria-hidden="true">⚡</div>
               <div>
-                <h3>Acceso oficial Tesla</h3>
-                <p>El enlace te lleva directamente a la web oficial de Tesla para configurar y pedir tu coche.</p>
+                <h3 data-i18n="point1Title">Acceso oficial Tesla</h3>
+                <p data-i18n="point1Text">El enlace te lleva directamente a la web oficial de Tesla para configurar y pedir tu coche.</p>
               </div>
             </article>
 
             <article class="guide-point">
               <div class="point-icon" aria-hidden="true">🔋</div>
               <div>
-                <h3>Autonomía, carga y batería</h3>
-                <p>Recursos útiles sobre Superchargers, degradación, eficiencia y experiencia real.</p>
+                <h3 data-i18n="point2Title">Autonomía, carga y batería</h3>
+                <p data-i18n="point2Text">Recursos útiles sobre Superchargers, degradación, eficiencia y experiencia real.</p>
               </div>
             </article>
 
             <article class="guide-point">
               <div class="point-icon" aria-hidden="true">🎥</div>
               <div>
-                <h3>Canales Tesla recomendados</h3>
-                <p>YouTubers, ingeniería Tesla, mecánica y contenido especializado en español e inglés.</p>
+                <h3 data-i18n="point3Title">Canales Tesla recomendados</h3>
+                <p data-i18n="point3Text">YouTubers, ingeniería Tesla, mecánica y contenido especializado en español e inglés.</p>
               </div>
             </article>
           </div>
 
           <div class="guide-buttons">
-            <a class="btn btn-primary" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer">
-              Usar mi referido Tesla →
-            </a>
-
-            <a class="btn btn-secondary" href="/es/">
-              Guía Tesla en español
-            </a>
+            <a class="btn btn-primary" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer" data-i18n="guideCta">Usar mi referido Tesla →</a>
+            <a class="btn btn-secondary" href="#recursos" data-i18n="guideResources">Ver recursos recomendados</a>
           </div>
 
-          <div class="guide-small-text">
-            El programa de referidos Tesla puede variar según país y fecha.
-          </div>
+          <div class="guide-small-text" data-i18n="guideNote">El programa de referidos Tesla puede variar según país y fecha.</div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="recursos">
       <div class="container">
-        <h2 class="section-title">Enlaces principales de esta web</h2>
+        <h2 class="section-title" data-i18n="linksTitle">Enlaces principales de esta web</h2>
 
-        <p class="section-text">
-          He organizado la web para que puedas elegir idioma, consultar información sobre el referido
-          y acceder a recursos útiles antes de comprar un Tesla.
+        <p class="section-text" data-i18n="linksText">
+          He organizado la web para que puedas elegir idioma, consultar información sobre el referido y acceder a recursos útiles antes de comprar un Tesla.
         </p>
 
         <div class="grid">
           <article class="card">
-            <h3>Versión en español</h3>
-            <p>Información sobre Tesla, referido Tesla, Model 3, Model Y y ventajas del programa de referidos en español.</p>
-            <a href="/es/">Ir a la versión española →</a>
+            <h3 data-i18n="cardEsTitle">Versión en español</h3>
+            <p data-i18n="cardEsText">Información sobre Tesla, referido Tesla, Model 3, Model Y y ventajas del programa de referidos en español.</p>
+            <a href="/es/" data-i18n="cardEsLink">Ir a la versión española →</a>
           </article>
 
           <article class="card">
-            <h3>English version</h3>
-            <p>Tesla referral link, Tesla resources, Model 3, Model Y and useful Tesla community links in English.</p>
-            <a href="/en/">Go to English version →</a>
+            <h3 data-i18n="cardEnTitle">English version</h3>
+            <p data-i18n="cardEnText">Tesla referral link, Tesla resources, Model 3, Model Y and useful Tesla community links in English.</p>
+            <a href="/en/" data-i18n="cardEnLink">Go to English version →</a>
           </article>
 
           <article class="card">
             <h3>Engineerix</h3>
-            <p>Canal especializado en ingeniería, análisis técnico, baterías, motores eléctricos y tecnología relacionada con Tesla.</p>
-            <a href="https://www.youtube.com/@Engineerix" target="_blank" rel="noopener noreferrer">Ver canal →</a>
+            <p data-i18n="cardEngineerixText">Canal especializado en ingeniería, análisis técnico, baterías, motores eléctricos y tecnología relacionada con Tesla.</p>
+            <a href="https://www.youtube.com/@Engineerix" target="_blank" rel="noopener noreferrer" data-i18n="cardEngineerixLink">Ver canal →</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="dudas" class="resources">
+    <section class="resources">
       <div class="container">
-        <h2 class="section-title">Canales y recursos Tesla recomendados</h2>
+        <h2 class="section-title" data-i18n="resourcesTitle">Canales y recursos Tesla recomendados</h2>
 
-        <p class="section-text">
-          Si estás investigando antes de comprar un Tesla, estos son algunos recursos útiles sobre Tesla,
-          ingeniería, mecánica, baterías, experiencia de usuario y movilidad eléctrica.
+        <p class="section-text" data-i18n="resourcesText">
+          Si estás investigando antes de comprar un Tesla, estos son algunos recursos útiles sobre Tesla, ingeniería, mecánica, baterías, experiencia de usuario y movilidad eléctrica.
         </p>
 
         <div class="resource-list">
           <article class="resource">
             <h3>Todos Eléctricos</h3>
-            <p>Canal en español sobre Tesla, coches eléctricos, viajes, consumo, carga y experiencia real con movilidad eléctrica.</p>
+            <p data-i18n="resTodos">Canal en español sobre Tesla, coches eléctricos, viajes, consumo, carga y experiencia real con movilidad eléctrica.</p>
             <a href="https://www.youtube.com/@TodosElectricos" target="_blank" rel="noopener noreferrer">YouTube →</a>
           </article>
 
           <article class="resource">
             <h3>Somos Eléctricos</h3>
-            <p>Noticias sobre Tesla, coches eléctricos, baterías, Superchargers y actualidad del mercado EV en español.</p>
-            <a href="https://somoselectricos.com/" target="_blank" rel="noopener noreferrer">Web →</a>
+            <p data-i18n="resSomos">Noticias sobre Tesla, coches eléctricos, baterías, Superchargers y actualidad del mercado EV en español.</p>
+            <a href="https://somoselectricos.com/" target="_blank" rel="noopener noreferrer" data-i18n="webLink">Web →</a>
           </article>
 
           <article class="resource">
             <h3>ForoCochesEléctricos</h3>
-            <p>Uno de los medios en español más conocidos sobre Tesla, movilidad eléctrica, autonomía y nuevas tecnologías.</p>
-            <a href="https://forococheselectricos.com/" target="_blank" rel="noopener noreferrer">Web →</a>
+            <p data-i18n="resForo">Uno de los medios en español más conocidos sobre Tesla, movilidad eléctrica, autonomía y nuevas tecnologías.</p>
+            <a href="https://forococheselectricos.com/" target="_blank" rel="noopener noreferrer" data-i18n="webLink">Web →</a>
           </article>
 
           <article class="resource">
             <h3>Tesla Raj</h3>
-            <p>Canal sobre Tesla, Model 3, viajes, autonomía y experiencia real.</p>
+            <p data-i18n="resRaj">Canal sobre Tesla, Model 3, viajes, autonomía y experiencia real.</p>
             <a href="https://www.youtube.com/@TeslaRaj" target="_blank" rel="noopener noreferrer">YouTube →</a>
           </article>
 
           <article class="resource">
             <h3>Battery Life</h3>
-            <p>Canal en inglés especializado en baterías Tesla, degradación, carga rápida y eficiencia real.</p>
+            <p data-i18n="resBattery">Canal en inglés especializado en baterías Tesla, degradación, carga rápida y eficiencia real.</p>
             <a href="https://www.youtube.com/@BatteryLife" target="_blank" rel="noopener noreferrer">YouTube →</a>
           </article>
 
           <article class="resource">
             <h3>Dirty Tesla</h3>
-            <p>Experiencia real diaria con Tesla, consumo, problemas reales, conducción autónoma y actualizaciones.</p>
+            <p data-i18n="resDirty">Experiencia real diaria con Tesla, consumo, problemas reales, conducción autónoma y actualizaciones.</p>
             <a href="https://www.youtube.com/@DirtyTesla" target="_blank" rel="noopener noreferrer">YouTube →</a>
           </article>
 
           <article class="resource">
             <h3>Munro Live</h3>
-            <p>Ingeniería y desmontajes técnicos de Tesla. Muy conocido por analizar la fabricación de Tesla.</p>
+            <p data-i18n="resMunro">Ingeniería y desmontajes técnicos de Tesla. Muy conocido por analizar la fabricación de Tesla.</p>
             <a href="https://www.youtube.com/@MunroLive" target="_blank" rel="noopener noreferrer">YouTube →</a>
           </article>
 
           <article class="resource">
             <h3>Tesla Owners Online</h3>
-            <p>Comunidad y noticias sobre Tesla, Superchargers, software y experiencias de usuarios Tesla.</p>
-            <a href="https://teslaownersonline.com/" target="_blank" rel="noopener noreferrer">Web →</a>
+            <p data-i18n="resOwners">Comunidad y noticias sobre Tesla, Superchargers, software y experiencias de usuarios Tesla.</p>
+            <a href="https://teslaownersonline.com/" target="_blank" rel="noopener noreferrer" data-i18n="webLink">Web →</a>
           </article>
 
           <article class="resource">
             <h3>Not a Tesla App</h3>
-            <p>Web conocida sobre actualizaciones Tesla, software, nuevas funciones y noticias de la marca.</p>
-            <a href="https://www.notateslaapp.com/" target="_blank" rel="noopener noreferrer">Web →</a>
+            <p data-i18n="resNotApp">Web conocida sobre actualizaciones Tesla, software, nuevas funciones y noticias de la marca.</p>
+            <a href="https://www.notateslaapp.com/" target="_blank" rel="noopener noreferrer" data-i18n="webLink">Web →</a>
           </article>
 
           <article class="resource">
-            <h3>Ingeniería y mecánica Tesla</h3>
-            <p>Contenido técnico sobre motores eléctricos, eficiencia, arquitectura Tesla y reparaciones.</p>
-            <a href="https://www.youtube.com/@Engineerix" target="_blank" rel="noopener noreferrer">Ver recursos →</a>
+            <h3 data-i18n="resEngTitle">Ingeniería y mecánica Tesla</h3>
+            <p data-i18n="resEngText">Contenido técnico sobre motores eléctricos, eficiencia, arquitectura Tesla y reparaciones.</p>
+            <a href="https://www.youtube.com/@Engineerix" target="_blank" rel="noopener noreferrer" data-i18n="resourcesView">Ver recursos →</a>
           </article>
 
           <article class="resource">
-            <h3>Superchargers y viajes</h3>
-            <p>Información útil sobre viajes en Tesla, carga rápida y experiencia viajando con coche eléctrico.</p>
-            <a href="https://www.tesla.com/supercharger" target="_blank" rel="noopener noreferrer">Ver red Supercharger →</a>
+            <h3 data-i18n="resSuperTitle">Superchargers y viajes</h3>
+            <p data-i18n="resSuperText">Información útil sobre viajes en Tesla, carga rápida y experiencia viajando con coche eléctrico.</p>
+            <a href="https://www.tesla.com/supercharger" target="_blank" rel="noopener noreferrer" data-i18n="superLink">Ver red Supercharger →</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="contacto">
+    <section id="dudas">
       <div class="container">
-        <h2 class="section-title">¿Pensando en comprar un Tesla?</h2>
+        <h2 class="section-title" data-i18n="faqTitle">Preguntas frecuentes sobre referido Tesla</h2>
+        <p class="section-text" data-i18n="faqLead">Respuestas claras antes de usar un enlace referido Tesla.</p>
 
-        <p class="section-text">
-          Si finalmente decides pedir un Tesla, puedes entrar directamente usando mi enlace referido oficial.
-          A ti no te cuesta nada y a mí me ayudas muchísimo.
+        <div class="faq">
+          <article class="faq-item">
+            <h3 data-i18n="faq1Title">¿Es una web oficial de Tesla?</h3>
+            <p data-i18n="faq1Text">No. Es una landing independiente. El botón abre la web oficial de Tesla usando mi enlace referido.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3 data-i18n="faq2Title">¿Me cuesta algo usarlo?</h3>
+            <p data-i18n="faq2Text">No. Accedes a Tesla desde el enlace y continúas en la web oficial de Tesla.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3 data-i18n="faq3Title">¿Los beneficios están garantizados?</h3>
+            <p data-i18n="faq3Text">No. Los beneficios dependen del programa activo de Tesla, país y fecha. Compruébalo en la web oficial antes de comprar.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3 data-i18n="faq4Title">¿Puedo compartir esta página?</h3>
+            <p data-i18n="faq4Text">Sí, puedes compartirla con alguien que ya esté valorando comprar un Tesla.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact">
+      <div class="container">
+        <h2 class="section-title" data-i18n="contactTitle">¿Pensando en comprar un Tesla?</h2>
+
+        <p class="section-text" data-i18n="contactText">
+          Si finalmente decides pedir un Tesla, puedes entrar directamente usando mi enlace referido oficial. A ti no te cuesta nada y a mí me ayudas muchísimo.
         </p>
 
         <div class="buttons">
-          <a class="btn btn-primary" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer">
-            Usar mi referido Tesla →
-          </a>
+          <a class="btn btn-primary" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer" data-i18n="contactCta">Usar mi referido Tesla →</a>
+          <a class="btn btn-secondary" href="mailto:teslaconreferido@gmail.com?subject=Duda%20sobre%20Tesla%20con%20referido" data-i18n="contactMail">Escribirme una duda</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" data-i18n="footerText">
     Tesla y sus modelos son marcas registradas de Tesla, Inc.<br>
     Esta web es independiente y no pertenece a Tesla.<br>
     Los beneficios del programa de referidos pueden variar según país y fecha.
@@ -822,20 +804,147 @@
       es: {
         navInicio: "Inicio",
         navVentajas: "Ventajas",
+        navRecursos: "Recursos",
         navDudas: "Dudas",
         navContacto: "Contacto",
-        navTesla: "Ir a Tesla"
+        navTesla: "Ir a Tesla",
+        heroBadge: "Tesla referral + recursos reales sobre Tesla",
+        heroTitle: "Tesla Referido + comunidad Tesla",
+        heroText: "Accede a Tesla con mi enlace referido y descubre recursos útiles sobre Tesla: canales de YouTube, ingeniería, mecánica, experiencias reales, carga, baterías, viajes y contenido especializado sobre Model 3 y Model Y.",
+        heroCta: "Entrar a Tesla con mi referido →",
+        heroFaq: "Dudas sobre el referido",
+        heroResources: "Ver recursos Tesla",
+        guideImageBadge: "Comunidad Tesla · Recursos · Experiencia real",
+        guideBadge: "Tesla referral + recursos útiles",
+        guideTitleA: "¿Vas a comprar un Tesla?",
+        guideTitleB: "Usa mi referido.",
+        guideLead: "Si ya estás pensando en comprar un Tesla Model 3, Model Y o cualquier otro modelo Tesla, puedes entrar usando mi enlace referido oficial. A ti no te cuesta nada y a mí me ayudas muchísimo.",
+        point1Title: "Acceso oficial Tesla",
+        point1Text: "El enlace te lleva directamente a la web oficial de Tesla para configurar y pedir tu coche.",
+        point2Title: "Autonomía, carga y batería",
+        point2Text: "Recursos útiles sobre Superchargers, degradación, eficiencia y experiencia real.",
+        point3Title: "Canales Tesla recomendados",
+        point3Text: "YouTubers, ingeniería Tesla, mecánica y contenido especializado en español e inglés.",
+        guideCta: "Usar mi referido Tesla →",
+        guideResources: "Ver recursos recomendados",
+        guideNote: "El programa de referidos Tesla puede variar según país y fecha.",
+        linksTitle: "Enlaces principales de esta web",
+        linksText: "He organizado la web para que puedas elegir idioma, consultar información sobre el referido y acceder a recursos útiles antes de comprar un Tesla.",
+        cardEsTitle: "Versión en español",
+        cardEsText: "Información sobre Tesla, referido Tesla, Model 3, Model Y y ventajas del programa de referidos en español.",
+        cardEsLink: "Ir a la versión española →",
+        cardEnTitle: "English version",
+        cardEnText: "Tesla referral link, Tesla resources, Model 3, Model Y and useful Tesla community links in English.",
+        cardEnLink: "Go to English version →",
+        cardEngineerixText: "Canal especializado en ingeniería, análisis técnico, baterías, motores eléctricos y tecnología relacionada con Tesla.",
+        cardEngineerixLink: "Ver canal →",
+        resourcesTitle: "Canales y recursos Tesla recomendados",
+        resourcesText: "Si estás investigando antes de comprar un Tesla, estos son algunos recursos útiles sobre Tesla, ingeniería, mecánica, baterías, experiencia de usuario y movilidad eléctrica.",
+        resTodos: "Canal en español sobre Tesla, coches eléctricos, viajes, consumo, carga y experiencia real con movilidad eléctrica.",
+        resSomos: "Noticias sobre Tesla, coches eléctricos, baterías, Superchargers y actualidad del mercado EV en español.",
+        resForo: "Uno de los medios en español más conocidos sobre Tesla, movilidad eléctrica, autonomía y nuevas tecnologías.",
+        resRaj: "Canal sobre Tesla, Model 3, viajes, autonomía y experiencia real.",
+        resBattery: "Canal en inglés especializado en baterías Tesla, degradación, carga rápida y eficiencia real.",
+        resDirty: "Experiencia real diaria con Tesla, consumo, problemas reales, conducción autónoma y actualizaciones.",
+        resMunro: "Ingeniería y desmontajes técnicos de Tesla. Muy conocido por analizar la fabricación de Tesla.",
+        resOwners: "Comunidad y noticias sobre Tesla, Superchargers, software y experiencias de usuarios Tesla.",
+        resNotApp: "Web conocida sobre actualizaciones Tesla, software, nuevas funciones y noticias de la marca.",
+        resEngTitle: "Ingeniería y mecánica Tesla",
+        resEngText: "Contenido técnico sobre motores eléctricos, eficiencia, arquitectura Tesla y reparaciones.",
+        resourcesView: "Ver recursos →",
+        resSuperTitle: "Superchargers y viajes",
+        resSuperText: "Información útil sobre viajes en Tesla, carga rápida y experiencia viajando con coche eléctrico.",
+        superLink: "Ver red Supercharger →",
+        webLink: "Web →",
+        faqTitle: "Preguntas frecuentes sobre referido Tesla",
+        faqLead: "Respuestas claras antes de usar un enlace referido Tesla.",
+        faq1Title: "¿Es una web oficial de Tesla?",
+        faq1Text: "No. Es una landing independiente. El botón abre la web oficial de Tesla usando mi enlace referido.",
+        faq2Title: "¿Me cuesta algo usarlo?",
+        faq2Text: "No. Accedes a Tesla desde el enlace y continúas en la web oficial de Tesla.",
+        faq3Title: "¿Los beneficios están garantizados?",
+        faq3Text: "No. Los beneficios dependen del programa activo de Tesla, país y fecha. Compruébalo en la web oficial antes de comprar.",
+        faq4Title: "¿Puedo compartir esta página?",
+        faq4Text: "Sí, puedes compartirla con alguien que ya esté valorando comprar un Tesla.",
+        contactTitle: "¿Pensando en comprar un Tesla?",
+        contactText: "Si finalmente decides pedir un Tesla, puedes entrar directamente usando mi enlace referido oficial. A ti no te cuesta nada y a mí me ayudas muchísimo.",
+        contactCta: "Usar mi referido Tesla →",
+        contactMail: "Escribirme una duda",
+        footerText: "Tesla y sus modelos son marcas registradas de Tesla, Inc.<br>Esta web es independiente y no pertenece a Tesla.<br>Los beneficios del programa de referidos pueden variar según país y fecha."
       },
       en: {
         navInicio: "Home",
         navVentajas: "Benefits",
+        navRecursos: "Resources",
         navDudas: "Questions",
         navContacto: "Contact",
-        navTesla: "Go to Tesla"
+        navTesla: "Go to Tesla",
+        heroBadge: "Tesla referral + real Tesla resources",
+        heroTitle: "Tesla Referral + Tesla community",
+        heroText: "Access Tesla with my referral link and discover useful Tesla resources: YouTube channels, engineering, mechanics, real ownership experiences, charging, batteries, road trips and specialized content about Model 3 and Model Y.",
+        heroCta: "Enter Tesla with my referral →",
+        heroFaq: "Referral questions",
+        heroResources: "View Tesla resources",
+        guideImageBadge: "Tesla community · Resources · Real experience",
+        guideBadge: "Tesla referral + useful resources",
+        guideTitleA: "Thinking of buying a Tesla?",
+        guideTitleB: "Use my referral.",
+        guideLead: "If you are already thinking about buying a Tesla Model 3, Model Y or any other Tesla model, you can enter using my official referral link. It does not cost you anything and it helps me a lot.",
+        point1Title: "Official Tesla access",
+        point1Text: "The link takes you directly to the official Tesla website to configure and order your car.",
+        point2Title: "Range, charging and battery",
+        point2Text: "Useful resources about Superchargers, degradation, efficiency and real ownership experience.",
+        point3Title: "Recommended Tesla channels",
+        point3Text: "YouTubers, Tesla engineering, mechanics and specialized content in Spanish and English.",
+        guideCta: "Use my Tesla referral →",
+        guideResources: "View recommended resources",
+        guideNote: "Tesla’s referral program may vary depending on country and date.",
+        linksTitle: "Main links on this website",
+        linksText: "I have organized this website so you can choose your language, check referral information and access useful resources before buying a Tesla.",
+        cardEsTitle: "Spanish version",
+        cardEsText: "Information about Tesla, Tesla referral, Model 3, Model Y and referral program benefits in Spanish.",
+        cardEsLink: "Go to Spanish version →",
+        cardEnTitle: "English version",
+        cardEnText: "Tesla referral link, Tesla resources, Model 3, Model Y and useful Tesla community links in English.",
+        cardEnLink: "Go to English version →",
+        cardEngineerixText: "A channel focused on engineering, technical analysis, batteries, electric motors and Tesla-related technology.",
+        cardEngineerixLink: "View channel →",
+        resourcesTitle: "Recommended Tesla channels and resources",
+        resourcesText: "If you are researching before buying a Tesla, these are some useful resources about Tesla, engineering, mechanics, batteries, user experience and electric mobility.",
+        resTodos: "Spanish channel about Tesla, electric cars, road trips, consumption, charging and real EV ownership experience.",
+        resSomos: "News about Tesla, electric cars, batteries, Superchargers and the EV market in Spanish.",
+        resForo: "One of the best-known Spanish media sites about Tesla, electric mobility, range and new technologies.",
+        resRaj: "Channel about Tesla, Model 3, road trips, range and real ownership experience.",
+        resBattery: "English channel focused on Tesla batteries, degradation, fast charging and real-world efficiency.",
+        resDirty: "Real daily Tesla ownership experience, consumption, real problems, autonomous driving and updates.",
+        resMunro: "Tesla engineering and technical teardowns. Well known for analyzing Tesla manufacturing.",
+        resOwners: "Community and news about Tesla, Superchargers, software and Tesla owner experiences.",
+        resNotApp: "Well-known website about Tesla updates, software, new features and brand news.",
+        resEngTitle: "Tesla engineering and mechanics",
+        resEngText: "Technical content about electric motors, efficiency, Tesla architecture and repairs.",
+        resourcesView: "View resources →",
+        resSuperTitle: "Superchargers and road trips",
+        resSuperText: "Useful information about Tesla road trips, fast charging and travelling with an electric car.",
+        superLink: "View Supercharger network →",
+        webLink: "Website →",
+        faqTitle: "Frequently asked questions about Tesla referrals",
+        faqLead: "Clear answers before using a Tesla referral link.",
+        faq1Title: "Is this an official Tesla website?",
+        faq1Text: "No. It is an independent landing page. The button opens Tesla’s official website using my referral link.",
+        faq2Title: "Does it cost anything to use it?",
+        faq2Text: "No. You access Tesla from the link and continue on the official Tesla website.",
+        faq3Title: "Are the benefits guaranteed?",
+        faq3Text: "No. Benefits depend on Tesla’s active program, country and date. Always check the official Tesla website before buying.",
+        faq4Title: "Can I share this page?",
+        faq4Text: "Yes, you can share it with someone who is already considering buying a Tesla.",
+        contactTitle: "Thinking of buying a Tesla?",
+        contactText: "If you finally decide to order a Tesla, you can enter directly using my official referral link. It does not cost you anything and it helps me a lot.",
+        contactCta: "Use my Tesla referral →",
+        contactMail: "Send me a question",
+        footerText: "Tesla and its models are registered trademarks of Tesla, Inc.<br>This website is independent and is not owned by Tesla.<br>Referral program benefits may vary depending on country and date."
       }
     };
 
-    const navLinks = document.querySelectorAll(".nav-links a");
     const langButtons = document.querySelectorAll(".lang-btn");
 
     function setLanguage(lang) {
@@ -843,14 +952,15 @@
 
       document.querySelectorAll("[data-i18n]").forEach((element) => {
         const key = element.dataset.i18n;
-        if (translations[lang][key]) {
-          element.textContent = translations[lang][key];
-        }
-      });
+        const value = translations[lang][key];
 
-      navLinks.forEach((link) => {
-        const section = link.getAttribute("href").split("#")[1];
-        link.href = `/${lang}/#${section}`;
+        if (!value) return;
+
+        if (value.includes("<br>")) {
+          element.innerHTML = value;
+        } else {
+          element.textContent = value;
+        }
       });
 
       langButtons.forEach((button) => {
