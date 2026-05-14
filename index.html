@@ -1,1 +1,776 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Tesla Referral Link</title><meta name="robots" content="index, follow"><link rel="canonical" href="https://www.teslaconreferido.com/en/"><link rel="alternate" hreflang="es" href="https://www.teslaconreferido.com/es/"><link rel="alternate" hreflang="en" href="https://www.teslaconreferido.com/en/"><link rel="alternate" hreflang="x-default" href="https://www.teslaconreferido.com/en/"><meta http-equiv="refresh" content="0; url=/en/"><script>const l=(navigator.language||'').toLowerCase();location.replace(l.startsWith('es')?'/es/':'/en/');</script></head><body><p><a href="/en/">Continue in English</a> · <a href="/es/">Continuar en español</a></p></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Tesla Referido | Model 3, Model Y, recursos Tesla y comunidad</title>
+
+<meta name="description" content="Accede a Tesla con mi enlace referido y descubre recursos útiles sobre Tesla: canales de YouTube, ingeniería, mecánica, viajes, baterías, Superchargers y comunidad Tesla en español e inglés.">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://www.teslaconreferido.com/">
+<link rel="alternate" hreflang="es" href="https://www.teslaconreferido.com/es/">
+<link rel="alternate" hreflang="en" href="https://www.teslaconreferido.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.teslaconreferido.com/">
+
+<style>
+:root{
+  --bg:#050505;
+  --card:#111214;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.72);
+  --line:rgba(255,255,255,.12);
+  --red:#e82127;
+  --red2:#ff4045;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 20px 90px;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://images3.alphacoders.com/129/thumb-1920-1298382.jpg");
+  background-size:cover;
+  background-position:center;
+  opacity:.35;
+  transform:scale(1.05);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.75), rgba(0,0,0,.86));
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:1100px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  margin-bottom:30px;
+  font-size:14px;
+  color:rgba(255,255,255,.82);
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--red2);
+  box-shadow:0 0 15px var(--red2);
+}
+
+h1{
+  font-size:clamp(48px,8vw,95px);
+  line-height:.95;
+  margin:0;
+  font-weight:950;
+  letter-spacing:-.07em;
+}
+
+.hero p{
+  max-width:850px;
+  margin:28px auto 0;
+  font-size:clamp(18px,2vw,25px);
+  line-height:1.6;
+  color:rgba(255,255,255,.82);
+}
+
+.buttons{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:42px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px 30px;
+  border-radius:24px;
+  font-weight:850;
+  font-size:18px;
+  transition:.25s;
+  min-height:58px;
+}
+
+.btn-primary{
+  background:var(--red);
+  box-shadow:0 18px 60px rgba(232,33,39,.4);
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  background:var(--red2);
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+}
+
+section{
+  padding:100px 20px;
+}
+
+.container{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.section-title{
+  font-size:clamp(34px,5vw,65px);
+  line-height:.95;
+  margin:0 0 20px;
+  font-weight:950;
+  letter-spacing:-.06em;
+  text-align:center;
+}
+
+.section-text{
+  max-width:850px;
+  margin:0 auto 55px;
+  text-align:center;
+  font-size:20px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+.tesla-guide{
+  position:relative;
+  padding:120px 22px;
+  background:
+  radial-gradient(circle at top left, rgba(232,33,39,.18), transparent 28%),
+  linear-gradient(to bottom,#050505,#0b0b0d);
+  overflow:hidden;
+}
+
+.guide-grid{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:54px;
+  align-items:center;
+}
+
+.guide-image{
+  position:relative;
+  overflow:hidden;
+  border-radius:36px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:
+  0 35px 120px rgba(0,0,0,.5),
+  0 0 0 1px rgba(255,255,255,.04) inset;
+}
+
+.guide-image img{
+  width:100%;
+  height:620px;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.02);
+}
+
+.image-overlay{
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.12)),
+  linear-gradient(to right, rgba(0,0,0,.24), transparent 45%);
+}
+
+.image-badge{
+  position:absolute;
+  left:24px;
+  bottom:24px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:rgba(0,0,0,.5);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(12px);
+  font-size:14px;
+  color:rgba(255,255,255,.84);
+}
+
+.guide-content{
+  position:relative;
+  z-index:2;
+}
+
+.guide-content h2{
+  margin:22px 0 26px;
+  font-size:clamp(42px,5.5vw,74px);
+  line-height:.95;
+  letter-spacing:-.07em;
+  font-weight:950;
+}
+
+.guide-content h2 span{
+  color:#ff4045;
+}
+
+.guide-lead{
+  margin:0 0 34px;
+  font-size:21px;
+  line-height:1.72;
+  color:rgba(255,255,255,.78);
+}
+
+.guide-points{
+  display:grid;
+  gap:22px;
+}
+
+.guide-point{
+  display:flex;
+  gap:18px;
+  padding:20px;
+  border-radius:26px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.08);
+  transition:.25s;
+}
+
+.guide-point:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+}
+
+.point-icon{
+  width:54px;
+  height:54px;
+  min-width:54px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.08);
+  font-size:24px;
+}
+
+.guide-point h3{
+  margin:0 0 8px;
+  font-size:22px;
+  letter-spacing:-.03em;
+}
+
+.guide-point p{
+  margin:0;
+  color:rgba(255,255,255,.72);
+  line-height:1.6;
+  font-size:16px;
+}
+
+.guide-buttons{
+  display:flex;
+  gap:16px;
+  margin-top:36px;
+  flex-wrap:wrap;
+}
+
+.guide-small-text{
+  margin-top:18px;
+  font-size:13px;
+  color:rgba(255,255,255,.42);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:28px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(255,255,255,.24);
+}
+
+.card h3{
+  margin:0 0 14px;
+  font-size:28px;
+  letter-spacing:-.04em;
+}
+
+.card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+.card a{
+  display:inline-block;
+  margin-top:18px;
+  font-weight:800;
+  color:#fff;
+}
+
+.resources{
+  background:linear-gradient(to bottom,#080808,#111);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.resource-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin-top:40px;
+}
+
+.resource{
+  padding:24px;
+  border-radius:24px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.resource h3{
+  margin:0 0 10px;
+  font-size:24px;
+}
+
+.resource p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.resource a{
+  display:inline-block;
+  margin-top:14px;
+  font-weight:800;
+}
+
+.footer{
+  padding:40px 20px;
+  text-align:center;
+  font-size:13px;
+  line-height:1.7;
+  color:rgba(255,255,255,.45);
+  border-top:1px solid var(--line);
+}
+
+@media(max-width:980px){
+  .guide-grid{
+    grid-template-columns:1fr;
+  }
+
+  .guide-image img{
+    height:420px;
+  }
+
+  .guide-content{
+    text-align:center;
+  }
+
+  .guide-buttons{
+    justify-content:center;
+  }
+
+  .guide-point{
+    text-align:left;
+  }
+}
+
+@media(max-width:700px){
+  .buttons{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+}
+
+@media(max-width:640px){
+  .guide-image img{
+    height:320px;
+  }
+
+  .guide-content h2{
+    font-size:48px;
+  }
+
+  .guide-lead{
+    font-size:18px;
+  }
+
+  .guide-buttons{
+    flex-direction:column;
+  }
+
+  .guide-buttons .btn{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="badge">
+      <span class="dot"></span>
+      Tesla referral + recursos reales sobre Tesla
+    </div>
+
+    <h1>Tesla Referido + comunidad Tesla</h1>
+
+    <p>
+      Accede a Tesla con mi enlace referido y descubre recursos útiles sobre Tesla:
+      canales de YouTube, ingeniería, mecánica, experiencias reales, carga, baterías,
+      viajes y contenido especializado sobre Model 3 y Model Y.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary"
+      href="https://ts.la/pedroenriq829453"
+      target="_blank"
+      rel="noopener noreferrer">
+        Entrar a Tesla con mi referido →
+      </a>
+
+      <a class="btn btn-secondary" href="/es/">
+        Versión en español
+      </a>
+
+      <a class="btn btn-secondary" href="/en/">
+        English version
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="tesla-guide">
+  <div class="container guide-grid">
+
+    <div class="guide-image">
+      <img
+      src="https://4kwallpapers.com/images/wallpapers/tesla-model-y-2025-3840x2160-21164.jpeg"
+      alt="Tesla Model Y en carretera">
+
+      <div class="image-overlay"></div>
+
+      <div class="image-badge">
+        Comunidad Tesla · Recursos · Experiencia real
+      </div>
+    </div>
+
+    <div class="guide-content">
+
+      <div class="badge">
+        <span class="dot"></span>
+        Tesla referral + recursos útiles
+      </div>
+
+      <h2>
+        ¿Vas a comprar un Tesla?
+        <span>Usa mi referido.</span>
+      </h2>
+
+      <p class="guide-lead">
+        Si ya estás pensando en comprar un Tesla Model 3, Model Y o cualquier otro modelo Tesla,
+        puedes entrar usando mi enlace referido oficial. A ti no te cuesta nada y a mí me ayudas muchísimo.
+      </p>
+
+      <div class="guide-points">
+
+        <div class="guide-point">
+          <div class="point-icon">⚡</div>
+          <div>
+            <h3>Acceso oficial Tesla</h3>
+            <p>
+              El enlace te lleva directamente a la web oficial de Tesla para configurar y pedir tu coche.
+            </p>
+          </div>
+        </div>
+
+        <div class="guide-point">
+          <div class="point-icon">🔋</div>
+          <div>
+            <h3>Autonomía, carga y batería</h3>
+            <p>
+              Recursos útiles sobre Superchargers, degradación, eficiencia y experiencia real.
+            </p>
+          </div>
+        </div>
+
+        <div class="guide-point">
+          <div class="point-icon">🎥</div>
+          <div>
+            <h3>Canales Tesla recomendados</h3>
+            <p>
+              YouTubers, ingeniería Tesla, mecánica y contenido especializado en español e inglés.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="guide-buttons">
+        <a class="btn btn-primary"
+        href="https://ts.la/pedroenriq829453"
+        target="_blank"
+        rel="noopener noreferrer">
+          Usar mi referido Tesla →
+        </a>
+
+        <a class="btn btn-secondary" href="/es/">
+          Guía Tesla en español
+        </a>
+      </div>
+
+      <div class="guide-small-text">
+        El programa de referidos Tesla puede variar según país y fecha.
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <h2 class="section-title">
+      Enlaces principales de esta web
+    </h2>
+
+    <p class="section-text">
+      He organizado la web para que puedas elegir idioma, consultar información sobre el referido
+      y acceder a recursos útiles antes de comprar un Tesla.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Versión en español</h3>
+        <p>
+          Información sobre Tesla, referido Tesla, Model 3, Model Y y ventajas del programa de referidos en español.
+        </p>
+        <a href="/es/">Ir a la versión española →</a>
+      </div>
+
+      <div class="card">
+        <h3>English version</h3>
+        <p>
+          Tesla referral link, Tesla resources, Model 3, Model Y and useful Tesla community links in English.
+        </p>
+        <a href="/en/">Go to English version →</a>
+      </div>
+
+      <div class="card">
+        <h3>Engineerix</h3>
+        <p>
+          Canal especializado en ingeniería, análisis técnico, baterías, motores eléctricos y tecnología relacionada con Tesla.
+        </p>
+        <a href="https://www.youtube.com/@Engineerix"
+        target="_blank"
+        rel="noopener noreferrer">
+          Ver canal →
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="resources">
+  <div class="container">
+
+    <h2 class="section-title">
+      Canales y recursos Tesla recomendados
+    </h2>
+
+    <p class="section-text">
+      Si estás investigando antes de comprar un Tesla, estos son algunos recursos útiles sobre Tesla,
+      ingeniería, mecánica, baterías, experiencia de usuario y movilidad eléctrica.
+    </p>
+
+    <div class="resource-list">
+
+      <div class="resource">
+        <h3>Tesla Raj</h3>
+        <p>
+          Canal sobre Tesla, Model 3, viajes, autonomía y experiencia real.
+        </p>
+        <a href="https://www.youtube.com/@TeslaRaj"
+        target="_blank"
+        rel="noopener noreferrer">
+          YouTube →
+        </a>
+      </div>
+
+      <div class="resource">
+        <h3>Battery Life</h3>
+        <p>
+          Canal en inglés especializado en baterías Tesla, degradación, carga rápida y eficiencia real.
+        </p>
+        <a href="https://www.youtube.com/@BatteryLife"
+        target="_blank"
+        rel="noopener noreferrer">
+          YouTube →
+        </a>
+      </div>
+
+      <div class="resource">
+        <h3>Dirty Tesla</h3>
+        <p>
+          Experiencia real diaria con Tesla, consumo, problemas reales, conducción autónoma y actualizaciones.
+        </p>
+        <a href="https://www.youtube.com/@DirtyTesla"
+        target="_blank"
+        rel="noopener noreferrer">
+          YouTube →
+        </a>
+      </div>
+
+      <div class="resource">
+        <h3>Munro Live</h3>
+        <p>
+          Ingeniería y desmontajes técnicos de Tesla. Muy conocido por analizar la fabricación de Tesla.
+        </p>
+        <a href="https://www.youtube.com/@MunroLive"
+        target="_blank"
+        rel="noopener noreferrer">
+          YouTube →
+        </a>
+      </div>
+
+      <div class="resource">
+        <h3>Tesla Owners Online</h3>
+        <p>
+          Comunidad y noticias sobre Tesla, Superchargers, software y experiencias de usuarios Tesla.
+        </p>
+        <a href="https://teslaownersonline.com/"
+        target="_blank"
+        rel="noopener noreferrer">
+          Web →
+        </a>
+      </div>
+
+      <div class="resource">
+        <h3>Not a Tesla App</h3>
+        <p>
+          Web conocida sobre actualizaciones Tesla, software, nuevas funciones y noticias de la marca.
+        </p>
+        <a href="https://www.notateslaapp.com/"
+        target="_blank"
+        rel="noopener noreferrer">
+          Web →
+        </a>
+      </div>
+
+      <div class="resource">
+        <h3>Ingeniería y mecánica Tesla</h3>
+        <p>
+          Contenido técnico sobre motores eléctricos, eficiencia, arquitectura Tesla y reparaciones.
+        </p>
+        <a href="https://www.youtube.com/@Engineerix"
+        target="_blank"
+        rel="noopener noreferrer">
+          Ver recursos →
+        </a>
+      </div>
+
+      <div class="resource">
+        <h3>Superchargers y viajes</h3>
+        <p>
+          Información útil sobre viajes en Tesla, carga rápida y experiencia viajando con coche eléctrico.
+        </p>
+        <a href="https://www.tesla.com/supercharger"
+        target="_blank"
+        rel="noopener noreferrer">
+          Ver red Supercharger →
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <h2 class="section-title">
+      ¿Pensando en comprar un Tesla?
+    </h2>
+
+    <p class="section-text">
+      Si finalmente decides pedir un Tesla, puedes entrar directamente usando mi enlace referido oficial.
+      A ti no te cuesta nada y a mí me ayudas muchísimo.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary"
+      href="https://ts.la/pedroenriq829453"
+      target="_blank"
+      rel="noopener noreferrer">
+        Usar mi referido Tesla →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  Tesla y sus modelos son marcas registradas de Tesla, Inc.<br>
+  Esta web es independiente y no pertenece a Tesla.<br>
+  Los beneficios del programa de referidos pueden variar según país y fecha.
+</footer>
+
+</body>
+</html>
