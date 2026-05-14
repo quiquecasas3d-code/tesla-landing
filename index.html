@@ -99,8 +99,19 @@
       color: rgba(255,255,255,.72);
     }
 
-    .lang-switch a:hover {
-      color: #fff;
+    .lang-btn {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,.62);
+      font: inherit;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .lang-btn:hover,
+    .lang-btn.active {
+      color: #ffffff;
     }
 
     .nav-cta {
@@ -554,19 +565,19 @@
   <header>
     <nav class="navbar">
       <div class="nav-links">
-        <a href="#">Inicio</a>
-        <a href="#">Ventajas</a>
-        <a href="#">Dudas</a>
-        <a href="#">Contacto</a>
+        <a href="/es/#inicio" data-i18n="navInicio">Inicio</a>
+        <a href="/es/#ventajas" data-i18n="navVentajas">Ventajas</a>
+        <a href="/es/#dudas" data-i18n="navDudas">Dudas</a>
+        <a href="/es/#contacto" data-i18n="navContacto">Contacto</a>
       </div>
 
       <div class="nav-right">
-        <div class="lang-switch">
-          <a href="/es/">ES</a>
-          <a href="/en/">EN</a>
+        <div class="lang-switch" aria-label="Selector de idioma">
+          <button type="button" class="lang-btn active" data-lang="es">ES</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
         </div>
 
-        <a class="nav-cta" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer">
+        <a class="nav-cta" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer" data-i18n="navTesla">
           Ir a Tesla
         </a>
       </div>
@@ -574,7 +585,7 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section id="inicio" class="hero">
       <div class="hero-content">
         <div class="badge">
           <span class="dot"></span>
@@ -605,7 +616,7 @@
       </div>
     </section>
 
-    <section class="tesla-guide">
+    <section id="ventajas" class="tesla-guide">
       <div class="container guide-grid">
         <div class="guide-image">
           <img src="https://4kwallpapers.com/images/wallpapers/tesla-model-y-2025-3840x2160-21164.jpeg" alt="Tesla Model Y en carretera">
@@ -703,7 +714,7 @@
       </div>
     </section>
 
-    <section class="resources">
+    <section id="dudas" class="resources">
       <div class="container">
         <h2 class="section-title">Canales y recursos Tesla recomendados</h2>
 
@@ -782,7 +793,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="contacto">
       <div class="container">
         <h2 class="section-title">¿Pensando en comprar un Tesla?</h2>
 
@@ -805,5 +816,51 @@
     Esta web es independiente y no pertenece a Tesla.<br>
     Los beneficios del programa de referidos pueden variar según país y fecha.
   </footer>
+
+  <script>
+    const translations = {
+      es: {
+        navInicio: "Inicio",
+        navVentajas: "Ventajas",
+        navDudas: "Dudas",
+        navContacto: "Contacto",
+        navTesla: "Ir a Tesla"
+      },
+      en: {
+        navInicio: "Home",
+        navVentajas: "Benefits",
+        navDudas: "Questions",
+        navContacto: "Contact",
+        navTesla: "Go to Tesla"
+      }
+    };
+
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const langButtons = document.querySelectorAll(".lang-btn");
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        if (translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+
+      navLinks.forEach((link) => {
+        const section = link.getAttribute("href").split("#")[1];
+        link.href = `/${lang}/#${section}`;
+      });
+
+      langButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+    }
+
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.lang));
+    });
+  </script>
 </body>
 </html>
