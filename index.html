@@ -46,6 +46,80 @@
       text-decoration: none;
     }
 
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 28px;
+      background: rgba(0, 0, 0, .55);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .navbar {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,.82);
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,.72);
+    }
+
+    .lang-switch a:hover {
+      color: #fff;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .nav-cta:hover {
+      background: rgba(255,255,255,.12);
+      transform: translateY(-2px);
+    }
+
     .hero {
       position: relative;
       min-height: 100vh;
@@ -422,6 +496,26 @@
       }
     }
 
+    @media (max-width: 900px) {
+      header {
+        padding: 14px 18px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
     @media (max-width: 700px) {
       .buttons {
         flex-direction: column;
@@ -457,6 +551,28 @@
 </head>
 
 <body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="#">Inicio</a>
+        <a href="#">Ventajas</a>
+        <a href="#">Dudas</a>
+        <a href="#">Contacto</a>
+      </div>
+
+      <div class="nav-right">
+        <div class="lang-switch">
+          <a href="/es/">ES</a>
+          <a href="/en/">EN</a>
+        </div>
+
+        <a class="nav-cta" href="https://ts.la/pedroenriq829453" target="_blank" rel="noopener noreferrer">
+          Ir a Tesla
+        </a>
+      </div>
+    </nav>
+  </header>
+
   <main>
     <section class="hero">
       <div class="hero-content">
